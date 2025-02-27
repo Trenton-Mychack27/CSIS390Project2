@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey Continues</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Default background transition for smooth effect */
+        body {
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>The Journey Continues</h1>
+        <p>With the guardian's riddle behind you, the path forward splits into three. Each route is known to favor certain traits: strength, wisdom, or stealth. Choose your path wisely, as it will influence the challenges you face ahead.</p>
+
+        <!-- Your Form -->
+        <form id="pathForm">
+            <label for="pathChoice">Choose Your Path:</label>
+            <select id="pathChoice" name="pathChoice" required>
+                <option value="" disabled selected>--Please choose an option--</option>
+                <option value="strength">Path of Strength</option>
+                <option value="wisdom">Path of Wisdom</option>
+                <option value="stealth">Path of Stealth</option>
+            </select>
+            <button type="submit" id="continueButton">Continue on Your Journey</button>
+        </form>
+
+        <p>Your choice will not only test your abilities but also reveal deeper truths about your character.</p>
+    </section>
+
+    <script>
+        const pathSelect = document.getElementById("pathChoice");
+        const pathForm = document.getElementById("pathForm");
+
+        // Function to change background color based on selection
+        function changeBackgroundColor() {
+            let selectedPath = pathSelect.value;
+
+            if (selectedPath === "strength") {
+                document.body.style.backgroundColor = "#FF5733"; // Red-Orange for Strength
+            } else if (selectedPath === "wisdom") {
+                document.body.style.backgroundColor = "#3498db"; // Blue for Wisdom
+            } else if (selectedPath === "stealth") {
+                document.body.style.backgroundColor = "#2c3e50"; // Dark Gray for Stealth
+            } else {
+                document.body.style.backgroundColor = "white"; // Default background
+            }
+        }
+
+        // Listen for change event on the select element
+        pathSelect.addEventListener("change", changeBackgroundColor);
+
+        // Handle form submission with conditional redirection
+        pathForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let selectedPath = pathSelect.value;
+            if (!selectedPath) {
+                alert("Please choose a path before continuing.");
+                return;
+            }
+
+            if (selectedPath === "stealth") {
+                window.location.href = "page5b.html"; // Redirect to page5b.html for Stealth path
+            } else {
+                window.location.href = "page6.html"; // Redirect to page6.html for other paths
+            }
+        });
+    </script>
+</body>
+</html>

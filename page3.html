@@ -30,8 +30,17 @@
                     <label><input type="checkbox" name="supplies" value="sword"> Sword - Useful for combat.</label>
                 </div>
             </div>
+            <button type="submit">Submit</button>
         </form>
-        <button type="submit">Submit</button>
     </section>
+    <script>
+        document.getElementById("bagForm").addEventListener("submit", function(event) {
+            let checkboxes = document.querySelectorAll('input[name="supplies"]:checked');
+            if (checkboxes.length === 0) {
+                alert("You must select at least one supply before continuing!");
+                event.preventDefault(); // Stops the form from submitting
+            }
+        });
+    </script>
 </body>
 </html>

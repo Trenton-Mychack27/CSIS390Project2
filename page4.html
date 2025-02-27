@@ -6,27 +6,68 @@
     <title>The First Obstacle</title>
     <!-- TODO: Import your CSS File here -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        #submitButton {
+            background-color: red; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #submitButton.correct {
+            background-color: green;
+            color: white;
+        }
+
+        #submitButton.incorrect {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <section class="container">
         <h1>The First Obstacle</h1>
         <p>As you venture deeper into the Dark Forest, you encounter a mystical guardian. The guardian blocks your path and poses a riddle:</p>
-        <form id="riddleForm" method="get" action="page5.html">
-            <p>David's father has three sons, names Snap, Crackle, and _____?</p>
-            <input type="text" name="riddleAnswer" id="riddleAnswer" required>
-            <button type="submit">Submit</button>
+        
+        <form id="riddleForm">
+            <p>"David's father has three sons, names Snap, Crackle, and _____?"</p>
+            <label for="riddleAnswer">Your Answer:</label>
+            <input type="text" name="riddleAnswer" id="riddleAnswer" placeholder="Enter your answer here" required>
+            <button type="submit" id="submitButton">Submit Answer</button>
         </form>
     </section>
+
     <script>
-        const riddleForm = document.getElementById('riddleForm');
-        riddleForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const riddleAnswer = document.getElementById('riddleAnswer').value;
-            if (riddleAnswer.toLowerCase() === 'david') {
-                alert('The guardian nods in approval and steps aside, allowing you to continue on your journey.');
-                window.location.href = 'page5.html';
+        const riddleInput = document.getElementById("riddleAnswer");
+        const submitButton = document.getElementById("submitButton");
+        const correctAnswer = "david"; 
+
+        function checkAnswer(inputValue) {
+            if (inputValue.toLowerCase() === correctAnswer) {
+                submitButton.classList.remove("incorrect");
+                submitButton.classList.add("correct");
             } else {
-                alert('The guardian shakes its head and points you back the way you came.');
+                submitButton.classList.remove("correct");
+                submitButton.classList.add("incorrect");
+            }
+        }
+
+        riddleInput.addEventListener("input", function() {
+            checkAnswer(riddleInput.value);
+        });
+
+        document.getElementById("riddleForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (riddleInput.value.toLowerCase() === correctAnswer) {
+                alert("The guardian nods in approval and steps aside, allowing you to continue on your journey.");
+                window.location.href = "page5.html";
+            } else {
+                alert("The guardian shakes its head and points you back the way you came.");
             }
         });
     </script>
