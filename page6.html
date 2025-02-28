@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Final Showdown</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f8f8;
+        margin: 0;
+    }
+    
+    .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    form {
+        text-align: center;
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+    }
+    
+    select, input[type="text"], textarea {
+        width: 90%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    .weapon-options, .armor-options {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    textarea {
+        height: 60px;
+        resize: none;
+    }
+    
+    button.submit-button {
+        background-color: #4a49f7;
+        color: white;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    button.submit-button:hover {
+        background-color: #3736d7;
+    }
+    
+    hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 10px 0;
+    }
+    
+    select {
+        width: 95%;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    
+    input[type="radio"], input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    
+    .character-info {
+        text-align: center;
+    }
+    .character-info p {
+        font-weight: bold;
+    }
+</style>    
+</head>
+<body>
+    <section class="container">
+        <h1>The Final Showdown</h1>
+        <p>After a long journey filled with trials and challenges, you finally stand before Malakar's lair. The dark sorcerer awaits, the Crystal of Wisdom in his grasp. It's time to make your move.</p>
+        
+        <form>
+            <fieldset>
+                <legend>How will you confront Malakar?</legend>
+                <p>Choose wisely:</p>
+                <select>
+                    <option>--Please choose an option--</option>
+                    <option>Fight with courage</option>
+                    <option>Use magic</option>
+                    <option>Attempt diplomacy</option>
+                </select>
+            </fieldset>
+        </form>
+        
+        <form id="SDForm" method="get" action="page7.html">
+            <fieldset>
+                <legend>Character Information</legend>
+                <div class="character-info">
+                    <fieldset>
+                    <legend>The Brave</legend>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name">
+                    </fieldset>
+                </div>
+            
+            
+            <fieldset>
+                <legend>Select Your Weapon:</legend>
+                <div class="weapon-options">
+                    <label><input type="radio" name="weapon" value="sword"> Sword</label>
+                    <label><input type="radio" name="weapon" value="bow"> Bow</label>
+                    <label><input type="radio" name="weapon" value="staff"> Staff</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Select Your Armor:</legend>
+                <div class="armor-options">
+                    <label><input type="checkbox" name="armor" value="plate"> Plate Armor</label>
+                    <label><input type="checkbox" name="armor" value="leather"> Leather Armor</label>
+                    <label><input type="checkbox" name="armor" value="cloak"> Cloak</label>
+                </div>
+            </fieldset>
+
+            
+                <label>Leave a Message for Malakar:</label>
+                <textarea rows="3"></textarea>
+            </fieldset>
+            
+            <button type="submit" class="submit-button">Face Malakar</button>
+        </form>
+        
+        <p>Your choice here will determine the fate of the kingdom. Choose wisely.</p>
+    </section>
+</body>
+</html>
